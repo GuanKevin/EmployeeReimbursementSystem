@@ -13,6 +13,11 @@ public class EmployeeViewServlet extends HttpServlet{
 	 * Allows user to make a reimbursement
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		if (req.getParameter("PastTicketBox") != null)
+			resp.sendRedirect("UserAccess/EmployeePastTickets.jsp");
+		else if (req.getParameter("ReimbursementBox") != null)
+			resp.sendRedirect("UserAccess/EmployeeReimbursementRequest.jsp");
+		else
+			resp.sendRedirect("UserAccess/EmployeeView");
 	}
 }
