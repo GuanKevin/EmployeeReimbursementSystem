@@ -56,7 +56,7 @@ public class UserDAO {
 			user.setUserFirstName(rs.getString(2));
 			user.setUserLastName(rs.getString(3));
 			user.setUserEmail(rs.getString(4));
-			user.setUserRoleId(new Role(rs.getInt(5), rs.getString(6)));
+			user.setUserRole(new Role(rs.getInt(5), rs.getString(6)));
 		}
 
 		return user;

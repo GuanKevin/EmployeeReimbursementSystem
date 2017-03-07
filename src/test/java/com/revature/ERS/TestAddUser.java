@@ -13,12 +13,12 @@ public class TestAddUser {
 		String sql = "INSERT INTO ERS_USERS "
 				+ "(ERS_USERNAME, ERS_PASSWORD, USER_FIRST_NAME, USER_LAST_NAME, USER_EMAIL, USER_ROLE_ID) "
 				+ "VALUES (?, ?, ?, ?, ?, ?)";
-		String username = "UNINVITED_STRANGER";
-		String password = BCrypt.hashpw("GUEST", BCrypt.gensalt());
-		String firstName = "UNINVITED";
-		String lastName = "STRANGER";
-		String email = "YOUR_FRIEND@YOU_CAN_TRUST_ME.COM";
-		int userRoleId = 1;
+		String username = "ManagerTest";
+		String password = BCrypt.hashpw("ManagerTest", BCrypt.gensalt());
+		String firstName = "Manager";
+		String lastName = "Test";
+		String email = "Manager@Test.com";
+		int userRoleId = 2;
 		
 		try {
 			PreparedStatement stmt = ConnectionFactory.getConnection().prepareStatement(sql);

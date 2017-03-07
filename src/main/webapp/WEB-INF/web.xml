@@ -1,2 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0"/>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0" >
+	
+	<servlet>
+		<servlet-name>LoginPage</servlet-name>
+		<servlet-class>com.revature.ERS.Servlets.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginPage</servlet-name>
+		<url-pattern>LoginPage.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>EmployeeView</servlet-name>
+		<servlet-class>com.revature.ERS.Servlets.EmployeeViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmployeeView</servlet-name>
+		<url-pattern>EmployeeView.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ManagerView</servlet-name>
+		<servlet-class>com.revature.ERS.Servlets.ManagerViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ManagerView</servlet-name>
+		<url-pattern>ManagerView.do</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
+	

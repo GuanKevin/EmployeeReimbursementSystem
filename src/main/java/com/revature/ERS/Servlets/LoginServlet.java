@@ -1,6 +1,7 @@
 package com.revature.ERS.Servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,34 +26,31 @@ public class LoginServlet extends HttpServlet {
 	 * to approve, deny or ignore reimbursement requests
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setAttribute("Username", req.getParameter("Username"));
 		try {
-			Facade facade = new Facade();
-			User user = facade.login(new User(req.getParameter("Username"), req.getParameter("Password")));
-
-			if (user != null) {
-				HttpSession session = req.getSession();
-				session.setAttribute("UserID", user.getUserId());
-				session.setAttribute("Username", user.getUsername());
-				session.setAttribute("FirstName", user.getUserFirstName());
-				session.setAttribute("LastName", user.getUserLastName());
-				session.setAttribute("Email", user.getUserEmail());
-				session.setAttribute("RoleID", user.getUserRoleId());
-
-				// Check if the user is an employee or a manager to forward them
-				// to a different page, employee/manager page
-				if (user.getUserRoleId().getErsUserRoleId() == 1) {
-					session.setAttribute("ERSReim", facade.getAllTickets());
-					resp.sendRedirect("UserAccess/EmployeeView.jsp");
-				} else {
-					session.setAttribute("ERSReim", facade.getPastTickets(user.getUserId()));
-					resp.sendRedirect("UserAcess/ManagerView.jsp");
-				}
-			} else {
-				//If the user and password does not match, deny user login access
-				req.setAttribute("access", "deny");
-				//Forward the user back to login page
+			User user = new Facade().login(new User(req.getParameter("UsernameTextBox"), req.getParameter("PasswordTextBox")));
+			PrintWriter out = resp.getWriter();
+			
+			if (user.getUserRole() == null) {
 				req.getRequestDispatcher("LoginPage.jsp").forward(req, resp);
+			}
+			else if (user.getUserRole().getErsUserRoleId() == 1) {				
+				HttpSession session = req.getSession();
+				session.setAttribute("empId", user.getUserId());
+				session.setAttribute("empUserName", req.getParameter("name"));
+				session.setAttribute("empFirstName", user.getUserFirstName());
+				session.setAttribute("empLastName", user.getUserLastName());
+				session.setAttribute("getReim", new Facade().filterReimbursement(user.getUserId()));
+				resp.sendRedirect("UserAccess/EmployeeView.jsp");
+			} else if (user.getUserRole().getErsUserRoleId() == 2) {
+				HttpSession session = req.getSession();
+				session.setAttribute("managerId", user.getUserId());
+				session.setAttribute("managerUserName", req.getParameter("name"));
+				session.setAttribute("managerFirstName", user.getUserFirstName());
+				session.setAttribute("managerLastName", user.getUserLastName());
+				session.setAttribute("getReim", new Facade().filterReimbursement(user.getUserId()));
+				resp.sendRedirect("UserAccess/ManagerView.jsp");
+			} else {
+				out.println("Something went wrong!\nMessage system admin systemAdmin@ERS.com ");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
