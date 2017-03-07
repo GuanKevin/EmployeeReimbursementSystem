@@ -43,11 +43,15 @@ public class LoginServlet extends HttpServlet {
 				// to a different page, employee/manager page
 				if (user.getUserRoleId().getErsUserRoleId() == 1) {
 					session.setAttribute("ERSReim", facade.getAllTickets());
-					resp.sendRedirect("ManagersView.jsp");
+					resp.sendRedirect("UserAccess/EmployeeView.jsp");
 				} else {
 					session.setAttribute("ERSReim", facade.getPastTickets(user.getUserId()));
+					resp.sendRedirect("UserAcess/ManagerView.jsp");
 				}
 			} else {
+				//If the user and password does not match, deny user login access
+				req.setAttribute("access", "deny");
+				//Forward the user back to login page
 				req.getRequestDispatcher("LoginPage.jsp").forward(req, resp);
 			}
 		} catch (Exception e) {
