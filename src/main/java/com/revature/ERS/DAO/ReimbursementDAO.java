@@ -321,4 +321,24 @@ public class ReimbursementDAO {
 		stmt.setInt(2, reimbId);
 		stmt.executeUpdate();
 	}
+	
+	/**
+	 * Return all users from the database
+	 * @return
+	 * @throws SQLException 
+	 */
+	public List<User> getAllUsers() throws SQLException {
+		String sql = "SELECT * FROM ERS_USERS";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+		List<User> userList = new ArrayList<User>();
+		
+		while (rs.next()) {
+			User user = new User();
+			user.setUserId(rs.getInt(1));
+			userList.add(user);
+		}
+		
+		return userList;
+	}
 }

@@ -1,4 +1,4 @@
-package com.revature.ERS.Servlets;
+package com.revature.ERS.Web;
 
 import java.io.IOException;
 import java.io.PrintWriter;

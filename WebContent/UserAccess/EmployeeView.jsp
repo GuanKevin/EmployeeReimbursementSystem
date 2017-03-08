@@ -7,11 +7,11 @@
 <title>EmployeeView</title>
 </head>
 <body>
-	<form action="Reimbursement.do" method = "Post">
+	<form action="EmployeeView.do" method = "Post">
 		View Past Tickets <br>
-		<input type="button" name="PastTicketBox" value="View Tickets"> <br>
+		<input type="submit" name="PastTicketBox" value="View Tickets"> <br>
 		Request Reimbursement <br>
-		<input type="button" name="ReimbursementBox" value="Reimbursement"> <br>
+		<input type="submit" name="ReimbursementBox" value="Reimbursement"> <br>
 	</form>
 </body>
 </html>
