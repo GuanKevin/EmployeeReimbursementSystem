@@ -11,7 +11,11 @@ public class Type {
 	private String reimbType;
 	
 	public Type() {
-		// TODO Auto-generated constructor stub
+		
+	}
+	
+	public Type(int reimbTypeId) {
+		this.reimbTypeId = reimbTypeId;
 	}
 
 	public Type(int reimbTypeId, String reimbType) {

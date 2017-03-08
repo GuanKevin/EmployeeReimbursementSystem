@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("empUserName", req.getParameter("name"));
 				session.setAttribute("empFirstName", user.getUserFirstName());
 				session.setAttribute("empLastName", user.getUserLastName());
-				session.setAttribute("getReim", new Facade().filterReimbursement(user.getUserId()));
+				session.setAttribute("getReim", new Facade().getPastTickets(user.getUserId()));
 				resp.sendRedirect("UserAccess/EmployeeView.jsp");
 			} else if (user.getUserRole().getErsUserRoleId() == 2) {
 				HttpSession session = req.getSession();
@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("managerUserName", req.getParameter("name"));
 				session.setAttribute("managerFirstName", user.getUserFirstName());
 				session.setAttribute("managerLastName", user.getUserLastName());
-				session.setAttribute("getReim", new Facade().filterReimbursement(user.getUserId()));
+				session.setAttribute("getReim", new Facade().getAllTickets());
 				resp.sendRedirect("UserAccess/ManagerView.jsp");
 			} else {
 				out.println("Something went wrong!\nMessage system admin systemAdmin@ERS.com ");

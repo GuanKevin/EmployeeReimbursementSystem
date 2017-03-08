@@ -19,11 +19,11 @@ public class TestAddReimbursement {
 		
 		try {
 			PreparedStatement stmt = ConnectionFactory.getConnection().prepareStatement(sql);
-			stmt.setInt(1, 1600);														// AMOUNT
+			stmt.setInt(1, 2604);														// AMOUNT
 			stmt.setTimestamp(2, new Timestamp(System.currentTimeMillis()));			// TIME SUBMITTED
-			stmt.setString(3, "Where do you live?");	// DESCRIPTION
+			stmt.setString(3, "Making a request EmpTest");	// DESCRIPTION
 			stmt.setNull(4, java.sql.Types.BLOB);										// RECEIPT
-			stmt.setInt(5, 10);															// AUTHOR
+			stmt.setInt(5, 12);															// AUTHOR
 			stmt.setInt(6, 1);															// STATUS ID
 			stmt.setInt(7, 2);															// TYPE ID
 			stmt.executeUpdate();

@@ -7,9 +7,11 @@
 <title>EmployeeView</title>
 </head>
 <body>
-	<form action="EmployeeView.do" method = "Post">
+	<form action="/ers/UserAccess/EmployeePastTickets.jsp" method = "Post">
 		View Past Tickets <br>
 		<input type="submit" name="PastTicketBox" value="View Tickets"> <br>
+	</form>
+	<form action="/ers/UserAccess/EmployeeReimbursementRequest.jsp" method = "Post">
 		Request Reimbursement <br>
 		<input type="submit" name="ReimbursementBox" value="Reimbursement"> <br>
 	</form>

@@ -5,7 +5,8 @@ public class Status {
 	private String reimbStatus;
 	
 	public Status() {
-		// TODO Auto-generated constructor stub
+		this.reimbStatusId = 1;
+		this.reimbStatus = "PENDING";
 	}
 
 	public Status(int reimbStatusId, String reimbStatus) {

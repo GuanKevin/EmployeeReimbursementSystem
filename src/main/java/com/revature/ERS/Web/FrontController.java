@@ -17,6 +17,9 @@ public class FrontController extends HttpServlet{
 				resp.sendRedirect("/ers/UserAccess/EmployeePastTickets.jsp");
 				break;
 			}
+			case "/ers/UserAccess/EmployeeReimbursementRequest.jsp": {
+				
+			}
 			default: {
 				throw new IllegalArgumentException();
 			}

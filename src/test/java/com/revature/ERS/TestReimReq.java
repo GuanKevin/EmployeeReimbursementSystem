@@ -11,14 +11,14 @@ import com.revature.ERS.Data.User;
 
 public class TestReimReq {
 
-	//@Test
+	@Test
 	public void thisShouldReturnAListOfPreviousReimbursementRequest() throws SQLException {
 		List<Reimbursement> reimList = new ReimbursementDAO().getAllTickets();
 		
 		System.out.println(reimList);
 	}
 	
-	@Test
+	//@Test
 	public void reimbursementUpdateShouldShowInDatabase() throws SQLException {
 		new ReimbursementDAO().changeStatus(3 , 6);
 	}
