@@ -18,9 +18,25 @@ public class FrontController extends HttpServlet{
 				break;
 			}
 			case "/ers/UserAccess/EmployeeReimbursementRequest.jsp": {
+				resp.sendRedirect("/ers/UserAccess/EmployeeView.jsp");
+				break;
+			}
+			case "/ers/UserAccess/ReimbursementSubmissionForm.do": {
+				System.out.println(requestURI);
 				
+				new ReimbursementSubmissionForm().doPost(req, resp);
+				break;
+			}
+			case "/ers/UserAccess/EmployeeView.jsp": {
+				req.getRequestDispatcher("EmployeeReimbursementRequest.do").forward(req, resp);
+				break;
+			}
+			case "/ers/UserAccess/CueController.do": {
+				new CueController().doPost(req, resp);
+				break;
 			}
 			default: {
+				System.out.println(requestURI);
 				throw new IllegalArgumentException();
 			}
 		}

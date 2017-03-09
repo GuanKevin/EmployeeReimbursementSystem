@@ -35,12 +35,22 @@
 	
 	<servlet>
 		<servlet-name>ReimbursementSubmissionForm</servlet-name>
-		<servlet-class>com.revature.ERS.Web.ErrorPage</servlet-class>
+		<servlet-class>com.revature.ERS.Web.ReimbursementSubmissionForm</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>ReimbursementSubmissionForm</servlet-name>
 		<url-pattern>ReimbursementSubmissionForm.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CueController</servlet-name>
+		<servlet-class>com.revature.ERS.Web.CueController</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>CueController</servlet-name>
+		<url-pattern>CueController.do</url-pattern>
 	</servlet-mapping>
 	
  	<error-page>

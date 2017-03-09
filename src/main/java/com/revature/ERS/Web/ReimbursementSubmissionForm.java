@@ -1,6 +1,7 @@
 package com.revature.ERS.Web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
@@ -19,9 +20,7 @@ public class ReimbursementSubmissionForm extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Reimbursement reim = new Reimbursement();
-		System.out.println("Test: " + Integer.parseInt(req.getParameterValues("ReimAmountBox").toString()));
-		reim.setReimbAmount(Integer.parseInt(req.getParameterValues("ReimAmountBox").toString()));
-		reim.setTimeResolved(new Timestamp(System.currentTimeMillis()));
+		reim.setReimbAmount(Integer.parseInt(req.getParameter("ReimAmountBox")));
 		reim.setDesc(req.getParameter("DescBox").toString());
 		reim.setReceipt(null);
 		User user = new User();
@@ -32,12 +31,18 @@ public class ReimbursementSubmissionForm extends HttpServlet {
 		
 		try {
 			new Facade().addReim(reim);
-			
+			req.getSession().setAttribute("getReim", new Facade().getPastTickets(user.getUserId()));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		resp.sendRedirect("/ers/UserAccess/EmployeeView.jsp");
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("HEY");
+		this.doPost(req, resp);
 	}
 }

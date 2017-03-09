@@ -11,9 +11,9 @@
 <body>
 <form action = "LoginPage.do" method = "Post">
 	Username: <br>
-	<input type="text" name="UsernameTextBox" value="Username"> <br> 
+	<input type="text" name="UsernameTextBox" value=""> <br> 
 	Password: <br>
-	<input type="password" name="PasswordTextBox" value="Password"> <br>
+	<input type="password" name="PasswordTextBox" value=""> <br>
 	<input type="submit" name="SubmitTextBox" value="Submit"> <br>
 </form>	
 </body>

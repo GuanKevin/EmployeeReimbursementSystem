@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,18 +37,19 @@ public class ReimbursementDAO {
 		String sql = "INSERT INTO ERS_REIMBURSEMENT "
 				+ "(REIMB_AMOUNT, REIMB_SUBMITTED, REIMB_DESCRIPTION, REIMB_RECEIPT,"
 				+ "REIMB_AUTHOR, REIMB_STATUS_ID, REIMB_TYPE_ID)"
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, reim.getReimbAmount());
-			stmt.setTimestamp(2, reim.getTimeSubmitted());
+			stmt.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
 			stmt.setString(3, reim.getDesc());
-			stmt.setBlob(4, reim.getReceipt());			
+			stmt.setNull(4, java.sql.Types.BLOB);			
 			stmt.setInt(5, reim.getAuthor().getUserId());
 			stmt.setInt(6, reim.getStatusId().getReimbStatusId());
 			stmt.setInt(7, reim.getTypeId().getReimbTypeId());
 			stmt.executeUpdate();
+			conn.commit();
 		} catch (SQLException se) {
 			se.printStackTrace();
 		} 
