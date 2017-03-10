@@ -9,11 +9,13 @@
 <body>
 	<form action="/ers/UserAccess/CueController.jsp" method="Post">
 		Approve/Deny Reimbursement <input type="submit"
-			name="ApproveDenyButton" value="approveDeny"> <br>
+			name="ApproveDenyButton" value="check status"> <br>
 	</form>
-	<form action="" method="Post">
-		Filter Request by Status <input type="submit"
-			name="FilterRequestButton" value="filterRequest"> <br>
+	<form action="ReimbursementStatusFilterDisplay.do"
+		method="post">
+		Filter Request by Status <br> Pending: 1 <br> Approve: 2 <br>
+		Deny: 3 <br> <input type="text" name="FilterRequestButton">
+		<input type="submit" name="submitButton" value="submit">
 	</form>
 </body>
 </html>

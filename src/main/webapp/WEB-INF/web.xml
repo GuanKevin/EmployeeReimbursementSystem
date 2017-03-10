@@ -53,6 +53,16 @@
 		<url-pattern>CueController.do</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>ReimbursementStatus</servlet-name>
+		<servlet-class>com.revature.ERS.Web.ReimbursementStatus</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ReimbursementStatus</servlet-name>
+		<url-pattern>ReimbursementStatus.do</url-pattern>
+	</servlet-mapping>
+	
  	<error-page>
 		<error-code>404</error-code>
 		<location>/UserAccess/Error.jsp</location>	
