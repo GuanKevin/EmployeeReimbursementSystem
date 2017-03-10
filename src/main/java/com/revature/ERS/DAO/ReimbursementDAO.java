@@ -318,11 +318,15 @@ public class ReimbursementDAO {
 	 * @throws SQLException
 	 */
 	public void changeStatus(int reimbStatusId, int reimbId, int reimbResolver) throws SQLException {
-		String sql = "UPDATE ERS_REIMBURSEMENT SET REIMB_STATUS_ID = ?, REIMB_RESOLVER = ? WHERE REIMB_ID = ?";
+		String sql = "UPDATE ERS_REIMBURSEMENT SET REIMB_STATUS_ID = ?, "
+				+ "REIMB_RESOLVER = ?, "
+				+ "REIMB_RESOLVED = ? "
+				+ "WHERE REIMB_ID = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, reimbStatusId);
 		stmt.setInt(2, reimbResolver);
-		stmt.setInt(3, reimbId);
+		stmt.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+		stmt.setInt(4, reimbId);
 		stmt.executeUpdate();
 		conn.commit();
 	}
