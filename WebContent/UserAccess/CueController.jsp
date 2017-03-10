@@ -34,8 +34,8 @@
 				<td>${tickets.statusId.reimbStatus}</td>
 				<td>${tickets.typeId.reimbType}</td>
 				<td><form action = 'CueController.do?status="${tickets.reimbId}"' method = "Post"> 
-					<input type = "submit" name = "approveButton"  value = "Approve">
-					<input type = "submit" name = "approveButton" value = "Deny">
+					<input type = "submit" name = "cueButton"  value = "Approve">
+					<input type = "submit" name = "cueButton" value = "Deny">
 				</form></td>
 			</tr>	
 		</c:forEach>

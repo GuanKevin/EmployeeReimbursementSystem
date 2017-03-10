@@ -22,8 +22,6 @@ public class FrontController extends HttpServlet{
 				break;
 			}
 			case "/ers/UserAccess/ReimbursementSubmissionForm.do": {
-				System.out.println(requestURI);
-				
 				new ReimbursementSubmissionForm().doPost(req, resp);
 				break;
 			}

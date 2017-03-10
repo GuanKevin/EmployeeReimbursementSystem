@@ -85,9 +85,9 @@ public class Facade {
 	 * @param reimbStatusId
 	 * @param reimbId
 	 */
-	public void changeStatus(int reimbStatusId, int reimbId) {
+	public void changeStatus(int reimbStatusId, int reimbId, int reimbResolver) {
 		try {
-			reim.changeStatus(reimbStatusId, reimbId);
+			reim.changeStatus(reimbStatusId, reimbId, reimbResolver);
 		} catch (SQLException e) {
 			System.out.println("Facade Class, changeStatus()");
 			e.printStackTrace();

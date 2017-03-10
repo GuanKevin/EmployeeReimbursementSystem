@@ -20,6 +20,6 @@ public class TestReimReq {
 	
 	//@Test
 	public void reimbursementUpdateShouldShowInDatabase() throws SQLException {
-		new ReimbursementDAO().changeStatus(3 , 6);
+		new ReimbursementDAO().changeStatus(3 , 6, 2);
 	}
 }
