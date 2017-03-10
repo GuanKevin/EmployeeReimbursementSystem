@@ -34,8 +34,7 @@ public class UserDAO {
 	}
 
 	/**
-	 * UPDATE: MAKE IT SIMPLE CRUD STATEMENTS Authenticate the user to login It
-	 * first checks user-name, if valid, check password.
+	 * Return an user object with all the users credential and information
 	 * 
 	 * @param user
 	 * @throws SQLException
@@ -82,9 +81,9 @@ public class UserDAO {
 	 * @throws SQLException
 	 */
 	public boolean validatePassword(User user) throws SQLException {
-		String sql = "SELECT ERS_PASSWORD FROM ERS_USERS WHERE ERS_USERS_ID = ?";
+		String sql = "SELECT ERS_PASSWORD FROM ERS_USERS WHERE ERS_USERNAME = ?";
 		PreparedStatement stmt = conn.prepareStatement(sql);
-		stmt.setInt(1, user.getUserId());
+		stmt.setString(1, user.getUsername());
 		ResultSet rs = stmt.executeQuery();
 
 		String hashedPassword = null;

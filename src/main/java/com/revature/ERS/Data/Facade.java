@@ -95,14 +95,23 @@ public class Facade {
 	}
 
 	/**
-	 * Calling UserDAO method
+	 * Calling UserDAO method Test if username is found in database
+	 * Check user's credential by validating username and password
 	 * 
 	 * @param user
 	 */
 	public User login(User user) {
 		try {
-			this.user.login(user);
-			return user;
+			if (this.user.validateUsername(user.getUsername())) {
+				if (this.user.validatePassword(user)) {
+					this.user.login(user);
+					return user;
+				} else {
+					return null;
+				}
+			} else {
+				return null;
+			}
 		} catch (SQLException e) {
 			System.out.println("User Class, login()");
 			e.printStackTrace();
