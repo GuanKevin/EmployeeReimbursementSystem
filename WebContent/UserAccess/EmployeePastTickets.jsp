@@ -10,7 +10,8 @@
 <body>
 	<table>
 		<tr>
-			<th>Username</th>
+			<th>Reimbursement ID</th>
+			<th>Emp_Username</th>
 			<th>Reimbursement</th>
 			<th>Time Submitted</th>
 			<th>Time Resolved</th>
@@ -22,8 +23,9 @@
 		<!-- for-each artist in request scoped variable, add a new row to table -->
 		<c:forEach var="tickets" items="${getReim}">
 			<tr>
+				<td>${tickets.reimbId}</td>
 				<td>${tickets.author.username}</td>
-				<td>${tickets.reimbAmount}</td>
+				<td>${$tickets.reimbAmount}</td>
 				<td>${tickets.timeSubmitted}</td>
 				<td>${tickets.timeResolved}</td>
 				<td>${tickets.desc}</td>

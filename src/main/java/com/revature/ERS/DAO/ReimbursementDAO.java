@@ -41,7 +41,7 @@ public class ReimbursementDAO {
 		
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, reim.getReimbAmount());
+			stmt.setDouble(1, reim.getReimbAmount());
 			stmt.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
 			stmt.setString(3, reim.getDesc());
 			stmt.setNull(4, java.sql.Types.BLOB);			

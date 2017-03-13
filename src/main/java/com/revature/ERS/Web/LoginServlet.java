@@ -26,6 +26,11 @@ public class LoginServlet extends HttpServlet {
 	 * to approve, deny or ignore reimbursement requests
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//If username or password field is empty, return user to login page.
+		if (req.getParameter("UsernameTextBox").equals("") 
+				|| req.getParameter("PasswordTextBox").equals(""))
+			req.getRequestDispatcher("LoginPage.jsp").forward(req, resp);
+		
 		try {
 			User user = new Facade().login(new User(req.getParameter("UsernameTextBox"), req.getParameter("PasswordTextBox")));
 			PrintWriter out = resp.getWriter();

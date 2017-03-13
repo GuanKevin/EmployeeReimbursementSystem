@@ -10,7 +10,7 @@
 	<form action="ReimbursementSubmissionForm.do" method = "post">
 		Reimbursement Request Amount: <input type="text" name="ReimAmountBox" value="42"> <br> 
 		Request Description: <input type="text" name="DescBox" value="Reimbursement Test"> <br> 
-		Reimbursement Type (1,2,3,4): <input type="text" name="TypeBox" value="3"> <br>
+		Reimbursement Type [1 2 3 4]: <input type="text" name="TypeBox" value="3"> <br>
 		<input type = "submit" name = "submitBox" value = "Submit"> <br>
 	</form>
 </body>

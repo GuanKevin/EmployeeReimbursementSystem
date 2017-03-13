@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  */
 public class Reimbursement {
 	private int reimbId;
-	private int reimbAmount;
+	private double reimbAmount;
 	private Timestamp timeSubmitted;		// Using SQL time stamp
 	private Timestamp timeResolved;			// Using SQL time stamp
 	private String desc;
@@ -46,10 +46,10 @@ public class Reimbursement {
 	public void setReimbId(int reimbId) {
 		this.reimbId = reimbId;
 	}
-	public int getReimbAmount() {
+	public double getReimbAmount() {
 		return reimbAmount;
 	}
-	public void setReimbAmount(int reimbAmount) {
+	public void setReimbAmount(double reimbAmount) {
 		this.reimbAmount = reimbAmount;
 	}
 	public Timestamp getTimeSubmitted() {

@@ -101,6 +101,9 @@ public class Facade {
 	 * @param user
 	 */
 	public User login(User user) {
+		if (user.getUsername().equals("") 
+				|| user.getPassword().equals(""))
+			return null;
 		try {
 			if (this.user.validateUsername(user.getUsername())) {
 				if (this.user.validatePassword(user)) {
