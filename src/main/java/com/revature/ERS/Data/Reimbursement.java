@@ -25,7 +25,7 @@ public class Reimbursement {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Reimbursement(int reimbId, int reimbAmount, Timestamp timeSubmitted, Timestamp timeResolved, String desc,
+	public Reimbursement(int reimbId, double reimbAmount, Timestamp timeSubmitted, Timestamp timeResolved, String desc,
 			Blob receipt, User author, User resolver, Status statusId, Type typeId) {
 		super();
 		this.reimbId = reimbId;

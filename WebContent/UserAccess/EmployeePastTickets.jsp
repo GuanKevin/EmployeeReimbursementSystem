@@ -25,7 +25,7 @@
 			<tr>
 				<td>${tickets.reimbId}</td>
 				<td>${tickets.author.username}</td>
-				<td>${$tickets.reimbAmount}</td>
+				<td>${tickets.reimbAmount}</td>
 				<td>${tickets.timeSubmitted}</td>
 				<td>${tickets.timeResolved}</td>
 				<td>${tickets.desc}</td>

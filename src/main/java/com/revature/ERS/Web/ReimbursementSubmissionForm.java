@@ -20,7 +20,7 @@ public class ReimbursementSubmissionForm extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Reimbursement reim = new Reimbursement();
-		reim.setReimbAmount(Integer.parseInt(req.getParameter("ReimAmountBox")));
+		reim.setReimbAmount(Double.parseDouble(req.getParameter("ReimAmountBox")));
 		reim.setDesc(req.getParameter("DescBox").toString());
 		reim.setReceipt(null);
 		User user = new User();
@@ -33,7 +33,7 @@ public class ReimbursementSubmissionForm extends HttpServlet {
 			new Facade().addReim(reim);
 			req.getSession().setAttribute("getReim", new Facade().getPastTickets(user.getUserId()));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		

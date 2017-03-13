@@ -90,7 +90,7 @@ public class ReimbursementDAO {
 			//Creating a new Reimbursement object 
 			reim = new Reimbursement();
 			reim.setReimbId(rs.getInt("REIMBID"));
-			reim.setReimbAmount(rs.getInt("REIMBAMOUNT"));
+			reim.setReimbAmount(rs.getDouble("REIMBAMOUNT"));
 			reim.setTimeSubmitted(rs.getTimestamp("TIMESUB"));
 			reim.setTimeResolved(rs.getTimestamp("TIMERES"));
 			reim.setDesc(rs.getString("DESCRIPTION"));
@@ -181,7 +181,7 @@ public class ReimbursementDAO {
 			//Creating a new Reimbursement object 
 			reim = new Reimbursement();
 			reim.setReimbId(rs.getInt("REIMBID"));
-			reim.setReimbAmount(rs.getInt("REIMBAMOUNT"));
+			reim.setReimbAmount(rs.getDouble("REIMBAMOUNT"));
 			reim.setTimeSubmitted(rs.getTimestamp("TIMESUB"));
 			reim.setTimeResolved(rs.getTimestamp("TIMERES"));
 			reim.setDesc(rs.getString("DESCRIPTION"));
@@ -264,7 +264,7 @@ public class ReimbursementDAO {
 			//Creating a new Reimbursement object 
 			reim = new Reimbursement();
 			reim.setReimbId(rs.getInt("REIMBID"));
-			reim.setReimbAmount(rs.getInt("REIMBAMOUNT"));
+			reim.setReimbAmount(rs.getDouble("REIMBAMOUNT"));
 			reim.setTimeSubmitted(rs.getTimestamp("TIMESUB"));
 			reim.setTimeResolved(rs.getTimestamp("TIMERES"));
 			reim.setDesc(rs.getString("DESCRIPTION"));

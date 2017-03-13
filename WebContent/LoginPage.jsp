@@ -8,7 +8,7 @@
 <title>LoginPage</title>
 
 </head>
-<body>
+<body >
 <form action = "LoginPage.do" method = "Post">
 	Username: <br>
 	<input type="text" name="UsernameTextBox" value=""> <br> 
